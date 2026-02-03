@@ -1,3 +1,6 @@
+import { techStack } from "../data/techStack";
+import { TECH_ICONS } from "../data/techIcons";
+
 import React, { useEffect, useState, useCallback } from "react";
 
 import { supabase } from "../supabase"; 
@@ -101,22 +104,6 @@ function a11yProps(index) {
     "aria-controls": `full-width-tabpanel-${index}`,
   };
 }
-
-// techStacks tetap sama
-const techStacks = [
-  { icon: "html.svg", language: "HTML" },
-  { icon: "css.svg", language: "CSS" },
-  { icon: "javascript.svg", language: "JavaScript" },
-  { icon: "tailwind.svg", language: "Tailwind CSS" },
-  { icon: "reactjs.svg", language: "ReactJS" },
-  { icon: "vite.svg", language: "Vite" },
-  { icon: "nodejs.svg", language: "Node JS" },
-  { icon: "bootstrap.svg", language: "Bootstrap" },
-  { icon: "firebase.svg", language: "Firebase" },
-  { icon: "MUI.svg", language: "Material UI" },
-  { icon: "vercel.svg", language: "Vercel" },
-  { icon: "SweetAlert.svg", language: "SweetAlert2" },
-];
 
 export default function FullWidthTabs() {
   const theme = useTheme();
@@ -316,12 +303,14 @@ export default function FullWidthTabs() {
                     data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
                   >
                     <CardProject
-                      Img={project.Img}
-                      Title={project.Title}
-                      Description={project.Description}
-                      Link={project.Link}
-                      id={project.id}
-                    />
+  Img={project.Img}
+  Title={project.Title}
+  Description={project.Description}
+  Link={project.Link}
+  id={project.id}
+  technologies={project.technologies || []}
+  features={project.features || []}
+/>
                   </div>
                 ))}
               </div>
@@ -345,7 +334,12 @@ export default function FullWidthTabs() {
                     data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
                     data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
                   >
-                    <Certificate ImgSertif={certificate.Img} />
+                    <Certificate
+  ImgSertif={certificate.Img}
+  PdfLink={certificate.Link}
+  Issuer={certificate.issuer}
+  Year={certificate.year}
+/>
                   </div>
                 ))}
               </div>
@@ -361,20 +355,54 @@ export default function FullWidthTabs() {
           </TabPanel>
 
           <TabPanel value={value} index={2} dir={theme.direction}>
-            <div className="container mx-auto flex justify-center items-center overflow-hidden pb-[5%]">
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 lg:gap-8 gap-5">
-                {techStacks.map((stack, index) => (
-                  <div
-                    key={index}
-                    data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
-                    data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
-                  >
-                    <TechStackIcon TechStackIcon={stack.icon} Language={stack.language} />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </TabPanel>
+  <div className="space-y-12 pb-[5%]">
+
+    {techStack.map((group, index) => {
+      const CategoryIcon = group.icon;
+
+      return (
+        <div key={index} className="space-y-5">
+          
+          {/* CATEGORY TITLE */}
+          <h3 className="flex items-center gap-3 text-lg md:text-xl font-semibold text-white">
+            <CategoryIcon className="w-5 h-5 text-purple-400" />
+            {group.category}
+          </h3>
+
+          {/* TECH ITEMS */}
+          <div className="flex flex-wrap gap-3">
+            {group.items.map((item, i) => {
+              const Icon = TECH_ICONS[item] || TECH_ICONS.default;
+
+              return (
+                <div
+                  key={i}
+                  className="
+                    flex items-center gap-2
+                    px-3 py-2
+                    rounded-xl
+                    bg-white/5
+                    border border-white/10
+                    hover:bg-white/10
+                    hover:border-white/20
+                    transition-all
+                    text-sm
+                    text-slate-200
+                  "
+                >
+                  <Icon className="w-4 h-4 text-blue-400" />
+                  {item}
+                </div>
+              );
+            })}
+          </div>
+
+        </div>
+      );
+    })}
+
+  </div>
+</TabPanel>
         </SwipeableViews>
       </Box>
     </div>

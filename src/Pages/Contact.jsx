@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Share2, User, Mail, MessageSquare, Send } from "lucide-react";
 import { Link } from "react-router-dom";
 import SocialLinks from "../components/SocialLinks";
-import Komentar from "../components/Commentar";
 import Swal from "sweetalert2";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -135,13 +134,26 @@ const ContactPage = () => {
         >
           Punya pertanyaan? Kirimi saya pesan, dan saya akan segera membalasnya.
         </p>
+        <div className="mt-12 flex justify-center">
+  <div className="w-full max-w-3xl bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 text-center">
+    <h3 className="text-2xl font-semibold text-white mb-2">
+      Connect With Me
+    </h3>
+    <p className="text-slate-400 text-sm mb-6">
+      Let’s connect and build something together
+    </p>
+    <div className="flex justify-center gap-6">
+      <SocialLinks />
+    </div>
+  </div>
+</div>
       </div>
 
       <div
-        className="h-auto py-10 flex items-center justify-center 2xl:pr-[3.1%] lg:pr-[3.8%]  md:px-0"
+        className="h-auto py-10 flex justify-center"
         id="Contact"
       >
-        <div className="container px-[1%] grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-[45%_55%] 2xl:grid-cols-[35%_65%] gap-12" >
+        <div className="container max-w-3xl mx-auto px-[1%] flex flex-col gap-14">
           <div
         
             className="bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl p-5 py-10 sm:p-10 transform transition-all duration-500 hover:shadow-[#6366f1]/10"
@@ -224,13 +236,6 @@ const ContactPage = () => {
               </button>
             </form>
 
-            <div className="mt-10 pt-6 border-t border-white/10 flex justify-center space-x-6">
-              <SocialLinks />
-            </div>
-          </div>
-
-          <div className="  bg-white/5 backdrop-blur-xl rounded-3xl p-3 py-3 md:p-10 md:py-8 shadow-2xl transform transition-all duration-500 hover:shadow-[#6366f1]/10">
-            <Komentar />
           </div>
         </div>
       </div>

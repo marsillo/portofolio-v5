@@ -5,6 +5,10 @@ import {
   Instagram,
   Youtube,
   ExternalLink,
+  Mail,
+  Phone,
+  Facebook,
+  Twitter,
 } from "lucide-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -16,7 +20,7 @@ const socialLinks = [
     displayName: "Let's Connect",
     subText: "on LinkedIn",
     icon: Linkedin,
-    url: "https://www.linkedin.com/in/ekizr/",
+    url: "https://www.linkedin.com/in/marsillo-dito-saputra-b809a522b/",
     color: "#0A66C2",
     gradient: "from-[#0A66C2] to-[#0077B5]",
     isPrimary: true,
@@ -24,34 +28,34 @@ const socialLinks = [
   {
     name: "Instagram",
     displayName: "Instagram",
-    subText: "@ekizr_",
+    subText: "@marsillo.dits",
     icon: Instagram,
-    url: "https://www.instagram.com/ekizr_/?hl=id",
+    url: "https://www.instagram.com/marsillo.dits/",
     color: "#E4405F",
     gradient: "from-[#833AB4] via-[#E4405F] to-[#FCAF45]",
   },
   {
     name: "YouTube",
     displayName: "Youtube",
-    subText: "@eki zulfar",
+    subText: "@marsilloditosaputra",
     icon: Youtube,
-    url: "https://www.youtube.com/@eki_zulfar",
+    url: "https://www.youtube.com/@marsilloditosaputra",
     color: "#FF0000",
     gradient: "from-[#FF0000] to-[#CC0000]",
   },
   {
     name: "GitHub",
     displayName: "Github",
-    subText: "@EkiZR",
+    subText: "@marsillo",
     icon: Github,
-    url: "https://github.com/EkiZR",
+    url: "https://github.com/marsillo",
     color: "#ffffff",
     gradient: "from-[#333] to-[#24292e]",
   },
   {
     name: "TikTok",
     displayName: "Tiktok",
-    subText: "@eki_zulfar",
+    subText: "@marsillo.dits",
     icon: ({ className, ...props }) => (
       <svg
         width="24px"
@@ -89,16 +93,59 @@ const socialLinks = [
         </g>
       </svg>
     ),
-    url: "https://tiktok.com/@eki_zulfar",
+    url: "https://www.tiktok.com/@marsillo.dits",
     color: "black",
     gradient: "from-[#000000] via-[#25F4EE] to-[#FE2C55]",
   },
+{
+  name: "Email",
+  displayName: "Email",
+  subText: "marsilloditos@gmail.com",
+  icon: Mail,
+  url: "https://mail.google.com/mail/?view=cm&fs=1&to=marsilloditos@gmail.com",
+  color: "#22c55e",
+  gradient: "from-[#22c55e] to-[#16a34a]",
+},
+{
+  name: "WhatsApp",
+  displayName: "WhatsApp",
+  subText: "+62 821-1378-5580",
+  icon: Phone,
+  url: "https://wa.me/6282113785580",
+  color: "#25D366",
+  gradient: "from-[#25D366] to-[#128C7E]",
+},
+{
+  name: "Facebook",
+  displayName: "Facebook",
+  subText: "Marsillo Dito Saputra",
+  icon: Facebook,
+  url: "https://www.facebook.com/profile.php?id=61557829872939",
+  color: "#1877F2",
+  gradient: "from-[#1877F2] to-[#0A66C2]",
+},
+{
+  name: "X",
+  displayName: "X (Twitter)",
+  subText: "@Marsillo_Dito",
+  icon: Twitter,
+  url: "https://x.com/Marsillo_Dito",
+  color: "#ffffff",
+  gradient: "from-[#000000] to-[#434343]",
+},
 ];
 
 const SocialLinks = () => {
   const linkedIn = socialLinks.find((link) => link.isPrimary);
+  const instagram = socialLinks.find((l) => l.name === "Instagram");
+  const youtube   = socialLinks.find((l) => l.name === "YouTube");
+  const github    = socialLinks.find((l) => l.name === "GitHub");
+  const tiktok    = socialLinks.find((l) => l.name === "TikTok"); 
   const otherLinks = socialLinks.filter((link) => !link.isPrimary);
-  const [instagram, youtube, github, tiktok] = otherLinks;
+  const firstRow = otherLinks.slice(0, 2);
+  const secondRow = otherLinks.slice(2, 4);
+  const thirdRow = otherLinks.slice(4);
+  const contactLinks = otherLinks.slice(4);
 
   useEffect(() => {
     AOS.init({
@@ -138,7 +185,7 @@ const SocialLinks = () => {
           {/* Content Container */}
           <div className="relative flex items-center gap-4">
             {/* Icon Container */}
-            <div className="relative flex items-center justify-center">
+            <div className="relative flex items-center justify-center w-10 h-10 flex-shrink-0">
               <div
                 className="absolute inset-0 opacity-20 rounded-md transition-all duration-500
                                group-hover:scale-110 group-hover:opacity-30"
@@ -198,7 +245,7 @@ const SocialLinks = () => {
                                      bg-gradient-to-r ${link.gradient}`}
               />
 
-              <div className="relative flex items-center justify-center">
+              <div className="relative flex items-center justify-center w-10 h-10 flex-shrink-0">
                 <div
                   className="absolute inset-0 opacity-20 rounded-lg transition-all duration-500
                                        group-hover:scale-125 group-hover:opacity-30"
@@ -213,7 +260,7 @@ const SocialLinks = () => {
               </div>
 
               {/* Text Container */}
-              <div className="flex flex-col min-w-0">
+              <div className="flex flex-col min-w-0 flex-1 text-left items-start">
                 <span className="text-sm font-bold text-gray-200 group-hover:text-white transition-colors duration-300">
                   {link.displayName}
                 </span>
@@ -257,7 +304,7 @@ const SocialLinks = () => {
                                      bg-gradient-to-r ${link.gradient}`}
               />
 
-              <div className="relative flex items-center justify-center">
+              <div className="relative flex items-center justify-center w-10 h-10 flex-shrink-0">
                 <div
                   className="absolute inset-0 opacity-20 rounded-lg transition-all duration-500
                                        group-hover:scale-125 group-hover:opacity-30"
@@ -272,7 +319,7 @@ const SocialLinks = () => {
               </div>
 
               {/* Text Container */}
-              <div className="flex flex-col min-w-0">
+              <div className="flex flex-col min-w-0 flex-1 text-left items-start">
                 <span className="text-sm font-bold text-gray-200 group-hover:text-white transition-colors duration-300">
                   {link.displayName}
                 </span>
@@ -296,7 +343,57 @@ const SocialLinks = () => {
             </a>
           ))}
         </div>
-  
+  {/* Contact Row - Email, WhatsApp, Facebook, X */}
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+  {contactLinks.map((link, index) => (
+    <a
+      key={link.name}
+      href={link.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative flex items-center gap-3 p-4 rounded-xl 
+                 bg-white/5 border border-white/10 overflow-hidden
+                 hover:border-white/20 transition-all duration-500"
+      data-aos="fade-up"
+      data-aos-delay={600 + index * 100}
+    >
+      <div
+        className={`absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500
+                    bg-gradient-to-r ${link.gradient}`}
+      />
+
+      {/* Icon */}
+      <div className="relative flex items-center justify-center w-10 h-10 flex-shrink-0">
+        <div
+          className="absolute inset-0 opacity-20 rounded-lg transition-all duration-500
+                     group-hover:scale-125 group-hover:opacity-30"
+          style={{ backgroundColor: link.color }}
+        />
+        <div className="relative p-2 rounded-lg">
+          <link.icon
+            className="w-5 h-5 transition-all duration-500 group-hover:scale-110"
+            style={{ color: link.color }}
+          />
+        </div>
+      </div>
+
+      {/* Text */}
+      <div className="flex flex-col min-w-0 flex-1 text-left items-start">
+        <span className="text-sm font-bold text-gray-200 group-hover:text-white">
+          {link.displayName}
+        </span>
+        <span className="text-xs text-gray-400 truncate group-hover:text-gray-300">
+          {link.subText}
+        </span>
+      </div>
+
+      <ExternalLink
+        className="w-4 h-4 text-gray-500 group-hover:text-white ml-auto
+                   opacity-0 group-hover:opacity-100 transition-all duration-300"
+      />
+    </a>
+  ))}
+</div>
       </div>
     </div>
   );

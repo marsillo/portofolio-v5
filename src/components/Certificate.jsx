@@ -3,7 +3,7 @@ import { Modal, IconButton, Box, Fade, Backdrop, Zoom, Typography } from "@mui/m
 import CloseIcon from "@mui/icons-material/Close"
 import FullscreenIcon from "@mui/icons-material/Fullscreen"
 
-const Certificate = ({ ImgSertif }) => {
+const Certificate = ({ ImgSertif, PdfLink, Issuer, Year }) => {
 	const [open, setOpen] = useState(false)
 
 	const handleOpen = () => {
@@ -115,6 +115,25 @@ const Certificate = ({ ImgSertif }) => {
 							}}>
 							View Certificate
 						</Typography>
+
+						<a
+  href={PdfLink}
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{
+    display: "inline-block",
+    marginTop: "10px",
+    padding: "6px 14px",
+    borderRadius: "6px",
+    background: "rgba(0,0,0,0.6)",
+    color: "white",
+    fontSize: "14px",
+    textDecoration: "none",
+  }}
+>
+  View PDF
+</a>
+
 					</Box>
 				</Box>
 			</Box>

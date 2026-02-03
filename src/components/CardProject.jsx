@@ -2,7 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ExternalLink, ArrowRight } from 'lucide-react';
 
-const CardProject = ({ Img, Title, Description, Link: ProjectLink, id }) => {
+const CardProject = ({
+  Img,
+  Title,
+  Description,
+  Link: ProjectLink,
+  id,
+  technologies = [],
+  features = []
+}) => {
   // Handle kasus ketika ProjectLink kosong
   const handleLiveDemo = (e) => {
     if (!ProjectLink) {
@@ -45,6 +53,23 @@ const CardProject = ({ Img, Title, Description, Link: ProjectLink, id }) => {
               {Description}
             </p>
             
+            {/* Technologies */}
+{technologies.length > 0 && (
+  <div className="flex flex-wrap gap-2 pt-3">
+    {technologies.map((tech, index) => (
+      <span
+        key={index}
+        className="text-xs px-2 py-1 rounded-md 
+                   bg-white/10 text-gray-300 
+                   border border-white/10
+                   hover:bg-white/20 transition"
+      >
+        {tech}
+      </span>
+    ))}
+  </div>
+)}
+
             <div className="pt-4 flex items-center justify-between">
               {ProjectLink ? (
                 <a

@@ -18,7 +18,7 @@ const TECH_ICONS = {
 };
 
 const TechBadge = ({ tech }) => {
-  const Icon = TECH_ICONS[tech] || TECH_ICONS["default"];
+  const Icon = TECH_ICONS[item] || TECH_ICONS.default;
   
   return (
     <div className="group relative overflow-hidden px-3 py-2 md:px-4 md:py-2.5 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-xl border border-blue-500/10 hover:border-blue-500/30 transition-all duration-300 cursor-default">
@@ -108,9 +108,9 @@ const ProjectDetails = () => {
     if (selectedProject) {
       const enhancedProject = {
         ...selectedProject,
-        Features: selectedProject.Features || [],
-        TechStack: selectedProject.TechStack || [],
-        Github: selectedProject.Github || 'https://github.com/EkiZR',
+        Features: selectedProject.features || [],
+        TechStack: selectedProject.technologies || [],
+        Github: selectedProject.Github || 'https://github.com/marsillo',
       };
       setProject(enhancedProject);
     }
