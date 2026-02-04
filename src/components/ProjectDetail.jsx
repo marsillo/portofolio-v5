@@ -18,7 +18,7 @@ const TECH_ICONS = {
 };
 
 const TechBadge = ({ tech }) => {
-  const Icon = TECH_ICONS[item] || TECH_ICONS.default;
+  const Icon = TECH_ICONS[tech] || TECH_ICONS.default;
   
   return (
     <div className="group relative overflow-hidden px-3 py-2 md:px-4 md:py-2.5 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-xl border border-blue-500/10 hover:border-blue-500/30 transition-all duration-300 cursor-default">
@@ -101,20 +101,31 @@ const ProjectDetails = () => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-    const storedProjects = JSON.parse(localStorage.getItem("projects")) || [];
-    const selectedProject = storedProjects.find((p) => String(p.id) === id);
-    
-    if (selectedProject) {
-      const enhancedProject = {
-        ...selectedProject,
-        Features: selectedProject.features || [],
-        TechStack: selectedProject.technologies || [],
-        Github: selectedProject.Github || 'https://github.com/marsillo',
-      };
-      setProject(enhancedProject);
-    }
-  }, [id]);
+  window.scrollTo(0, 0);
+
+  const storedProjects = JSON.parse(localStorage.getItem("projects"));
+
+  if (!storedProjects || storedProjects.length === 0) {
+    // balik ke halaman projects kalau data tidak ada
+    navigate("/projects");
+    return;
+  }
+
+  const selectedProject = storedProjects.find(
+    (p) => Number(p.id) === Number(id)
+  );
+
+  if (selectedProject) {
+    setProject({
+      ...selectedProject,
+      Features: selectedProject.features || [],
+      TechStack: selectedProject.technologies || [],
+      Github: selectedProject.Github || "https://github.com/marsillo",
+    });
+  } else {
+    navigate("/projects");
+  }
+}, [id, navigate]);
 
   if (!project) {
     return (
