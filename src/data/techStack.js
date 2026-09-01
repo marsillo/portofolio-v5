@@ -22,6 +22,7 @@ export const techStack = [
       "Java",
       "Go",
       "SQL",
+      "R",
     ],
   },
   {
@@ -66,6 +67,12 @@ export const techStack = [
       "CNN",
       "Computer Vision",
       "Image Processing",
+      "LiDAR",
+      "3D Object Detection",
+      "Semantic Segmentation",
+      "Traffic Sign Recognition",
+      "Traffic Light Annotation",
+      "Autonomous Driving",
     ],
   },
   {
@@ -76,6 +83,7 @@ export const techStack = [
       "Oracle Database",
       "Firebase Realtime Database",
       "DBMS",
+      "MariaDB",
     ],
   },
   {
@@ -125,6 +133,7 @@ export const techStack = [
     category: "Other Skills",
     icon: FileText,
     items: [
+      "Data Annotation",
       "Data Science",
       "Web Scraping",
       "Data Preprocessing",

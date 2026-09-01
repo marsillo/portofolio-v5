@@ -214,7 +214,7 @@ const AboutPage = () => {
               data-aos="fade-right"
               data-aos-duration="1500"
             >
-             Seorang lulusan S1 Informatika dengan minat di bidang IT Operations, Systems Support, dan Data Support. Memiliki pengalaman akademik dalam pengolahan data, machine learning, serta pengembangan sistem berbasis pemrograman, dan terbiasa bekerja secara terstruktur untuk mendukung solusi IT yang andal.
+             Seorang Lulusan S1 Informatika dari Universitas Gunadarma dengan pengalaman 6 bulan sebagai Data Annotator pada proyek autonomous driving. Memiliki minat di bidang IT Operations, Systems Support, dan Data Support, serta pengalaman dalam pengolahan data, Computer Vision, Machine Learning, dan pengembangan sistem berbasis pemrograman. Terbiasa bekerja secara terstruktur dalam menangani data dan mendukung solusi berbasis teknologi, serta memiliki kemampuan Python dan SQL.
             </p>
 
                {/* Quote Section */}
@@ -240,7 +240,7 @@ const AboutPage = () => {
       </div>
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
-              <a href="https://drive.google.com/file/d/1wDmkzlL6euIYcwFxQxp5gABrmKXlr2Sa/view?usp=sharing" className="w-full lg:w-auto">
+              <a href="https://drive.google.com/file/d/1y54n4xdZuoHE9558ifutEkeKBw1fUgwe/view?usp=sharing" className="w-full lg:w-auto">
               <button 
                 data-aos="fade-up"
                 data-aos-duration="800"

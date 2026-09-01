@@ -14,12 +14,11 @@ const StatusBadge = memo(() => (
     <div className="relative group">
       <div className="absolute -inset-0.5 bg-gradient-to-r from-[#6366f1] to-[#a855f7] rounded-full blur opacity-30 group-hover:opacity-50 transition duration-700" />
 
-      <div className="relative px-4 py-2 rounded-full bg-black/50 backdrop-blur-xl border border-white/10">
-        <span className="bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-transparent bg-clip-text text-xs sm:text-sm font-medium flex items-center gap-2">
-          <Sparkles className="w-4 h-4 text-blue-400" />
-          Ready to Work
-        </span>
-      </div>
+<div className="absolute -right-5 top-0 w-max whitespace-nowrap px-4 py-2 rounded-full bg-black/50 backdrop-blur-xl border border-white/10">  <span className="bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-transparent bg-clip-text text-xs sm:text-sm font-medium flex items-center gap-2">
+    <Sparkles className="w-4 h-4 text-blue-400" />
+    Ready to Work
+  </span>
+</div>
     </div>
   </div>
 ));
@@ -98,8 +97,8 @@ const SocialLink = memo(({ icon: Icon, link }) => (
 const TYPING_SPEED = 100;
 const ERASING_SPEED = 50;
 const PAUSE_DURATION = 2000;
-const WORDS = ["Data Scientist • Data Analyst", "Pengolahan Data"];
-const TECH_STACK = ["Python", "SQL", "DBMS", "Go-Lang", "Oracle", "JavaScript", "Java", "React", "ML", "DL", "Computer Vision"];
+const WORDS = ["Data Scientist • Data Analyst • IT Systems", "Data Annotation • Data Support"];
+const TECH_STACK = ["Data Annotation", "Python", "SQL", "DBMS", "Go-Lang", "Oracle", "JavaScript", "Java", "React", "ML", "DL", "Computer Vision"];
 const SOCIAL_LINKS = [
   { icon: Github, link: "https://github.com/marsillo" },
   { icon: Linkedin, link: "https://www.linkedin.com/in/marsillo-dito-saputra-b809a522b/" },
@@ -198,9 +197,7 @@ const Home = () => {
     marginRight: "0px",
   }}
 >
-  Fresh graduate S1 Informatika dari Universitas Gunadarma dengan IPK 3,74,
-  memiliki dasar yang kuat di bidang pemrograman, sistem, dan pengolahan data,
-  serta siap berkembang di dunia profesional IT.
+ Lulusan S1 Informatika Universitas Gunadarma dengan IPK 3,74 dan Berpengalaman 6 bulan sebagai Data Annotator, memiliki dasar yang kuat di bidang pemrograman, sistem, dan pengolahan data, serta siap berkembang di dunia profesional IT.  
 </p>
 
                 {/* Tech Stack */}
